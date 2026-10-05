@@ -1,0 +1,55 @@
+
+(spark-ray-a3) sidhartha@ubuntu-m1:~/AIOpsassignment-3$ cat > results/ray_reconstructed_time.txt <<'EOF'
+2262.830000
+EOF
+(spark-ray-a3) sidhartha@ubuntu-m1:~/AIOpsassignment-3$ python - <<'PY'
+import glob, os
+import pyarrow.parquet as pq
+
+files = glob.glob("output/ray/cleaned_taxi/**/*.parquet", recursive=True)
+
+rows = sum(pq.ParquetFile(f).metadata.num_rows for f in files)
+size = sum(os.path.getsize(f) for f in files)
+
+schema = pq.ParquetFile(files[0]).schema_arrow
+
+with open("results/ray_validation.txt", "w") as out:
+    out.write(f"parquet_files={len(files)}\n")
+    out.write(f"row_count={rows}\n")
+    out.write(f"output_bytes={size}\n")
+    out.write(f"output_gib={size/1024**3:.3f}\n")
+    out.write(f"reconstructed_runtime_seconds=2262.830000\n")
+    out.write("\nschema:\n")
+    out.write(str(schema))
+
+print("Files:", len(files))
+print("Rows:", f"{rows:,}")
+print("Size:", f"{size/1024**3:.3f} GiB")
+print("\nSchema:")
+print(schema)
+PY
+Files: 35
+Rows: 121,692,576
+Size: 3.516 GiB
+
+Schema:
+VendorID: int32
+passenger_count: int64
+trip_distance: double
+fare_amount: double
+total_amount: double
+PULocationID: int32
+DOLocationID: int32
+pickup_timestamp: large_string
+dropoff_timestamp: large_string
+trip_duration_hours: double
+average_speed_mph: double
+pickup_borough: large_string
+pickup_zone: large_string
+pickup_service_zone: large_string
+dropoff_borough: large_string
+dropoff_zone: large_string
+dropoff_service_zone: large_string
+-- schema metadata --
+pandas: '{"index_columns": [], "column_indexes": [], "columns": [{"name":' + 2768
+(spark-ray-a3) sidhartha@ubuntu-m1:~/AIOpsassignment-3$

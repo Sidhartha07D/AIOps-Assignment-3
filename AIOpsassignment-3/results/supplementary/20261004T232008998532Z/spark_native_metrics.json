@@ -1,0 +1,145 @@
+{
+  "run_id": "20261004T232008998532Z",
+  "variant": "spark_native",
+  "scope": "supplementary fixed subset",
+  "input_rows": 200000,
+  "source_sha256": "0cf6610f7577569a788c0cd8b6a29b3811f7c5773f694a761116693c27f61ce8",
+  "environment": {
+    "python": "3.11.17 (main, Oct  1 2026, 20:10:00) [GCC 14.3.0]",
+    "platform": "Linux-7.0.0-31-generic-aarch64-with-glibc2.43",
+    "package_versions": {
+      "pyspark": "3.5.7",
+      "ray": "2.59.0",
+      "numpy": "2.4.6",
+      "pandas": "3.0.6",
+      "pyarrow": "25.0.1"
+    }
+  },
+  "status": "completed",
+  "cluster": {
+    "master": "spark://192.168.64.2:7077",
+    "default_parallelism": 2,
+    "application_id": "app-20261005045359-0001",
+    "session_timezone": "Asia/Kolkata"
+  },
+  "pipeline_seconds": 15.95304217300145,
+  "pipeline_timer_scope": "after engine initialization, before lookup/trip reading through successful Parquet write; excludes feature profiling and output comparison",
+  "pipeline_resources": {
+    "scope": "whole VM; includes OS, monitoring and other processes",
+    "phase": "ingestion_to_export",
+    "sampling_interval_seconds": 0.5,
+    "samples": 33,
+    "max_observed_cpu_busy_percent": 99.0,
+    "max_observed_ram_used_mib": 2791.5703125,
+    "max_observed_swap_used_mib": 3018.046875,
+    "baseline": {
+      "utc": "2026-10-04T23:24:02.281755+00:00",
+      "monotonic_seconds": 36717.932168573,
+      "phase": "ingestion_to_export",
+      "host_ram_total_mib": 3380.734375,
+      "host_ram_used_mib": 2083.44921875,
+      "host_swap_used_mib": 2994.73828125,
+      "host_cpu_busy_percent": null
+    },
+    "ram_definition": "MemTotal minus MemAvailable; differs from top used-memory accounting",
+    "cpu_definition": "aggregate across all virtual CPUs, 0-100%; idle and iowait excluded",
+    "limitation": "sampled maxima for this subset and phase, not true instantaneous or full-dataset peaks",
+    "monitor_error": null
+  },
+  "feature_stage": {
+    "warmup_seconds_not_in_median": 3.9268646109994734,
+    "timed_runs_seconds": [
+      1.7821933020022698,
+      0.780351822002558,
+      0.7198370670012082
+    ],
+    "median_seconds": 0.780351822002558,
+    "input_rows": 197338,
+    "execution_checks": [
+      {
+        "rows": 197338,
+        "speed_sum": 2314438.906373293
+      },
+      {
+        "rows": 197338,
+        "speed_sum": 2314438.906373293
+      },
+      {
+        "rows": 197338,
+        "speed_sum": 2314438.906373293
+      }
+    ],
+    "resource_samples": [
+      {
+        "scope": "whole VM; includes OS, monitoring and other processes",
+        "phase": "feature_stage",
+        "sampling_interval_seconds": 0.5,
+        "samples": 8,
+        "max_observed_cpu_busy_percent": 76.96335078534031,
+        "max_observed_ram_used_mib": 2783.27734375,
+        "max_observed_swap_used_mib": 3518.46484375,
+        "baseline": {
+          "utc": "2026-10-04T23:24:32.039140+00:00",
+          "monotonic_seconds": 36747.690529216,
+          "phase": "feature_stage",
+          "host_ram_total_mib": 3380.734375,
+          "host_ram_used_mib": 2750.75,
+          "host_swap_used_mib": 3437.7421875,
+          "host_cpu_busy_percent": null
+        },
+        "ram_definition": "MemTotal minus MemAvailable; differs from top used-memory accounting",
+        "cpu_definition": "aggregate across all virtual CPUs, 0-100%; idle and iowait excluded",
+        "limitation": "sampled maxima for this subset and phase, not true instantaneous or full-dataset peaks",
+        "monitor_error": null
+      },
+      {
+        "scope": "whole VM; includes OS, monitoring and other processes",
+        "phase": "feature_stage",
+        "sampling_interval_seconds": 0.5,
+        "samples": 4,
+        "max_observed_cpu_busy_percent": 78.04878048780488,
+        "max_observed_ram_used_mib": 2696.3984375,
+        "max_observed_swap_used_mib": 3499.859375,
+        "baseline": {
+          "utc": "2026-10-04T23:24:35.597048+00:00",
+          "monotonic_seconds": 36751.247613818,
+          "phase": "feature_stage",
+          "host_ram_total_mib": 3380.734375,
+          "host_ram_used_mib": 2657.2421875,
+          "host_swap_used_mib": 3499.859375,
+          "host_cpu_busy_percent": null
+        },
+        "ram_definition": "MemTotal minus MemAvailable; differs from top used-memory accounting",
+        "cpu_definition": "aggregate across all virtual CPUs, 0-100%; idle and iowait excluded",
+        "limitation": "sampled maxima for this subset and phase, not true instantaneous or full-dataset peaks",
+        "monitor_error": null
+      },
+      {
+        "scope": "whole VM; includes OS, monitoring and other processes",
+        "phase": "feature_stage",
+        "sampling_interval_seconds": 0.5,
+        "samples": 4,
+        "max_observed_cpu_busy_percent": 82.29166666666667,
+        "max_observed_ram_used_mib": 2716.24609375,
+        "max_observed_swap_used_mib": 3472.99609375,
+        "baseline": {
+          "utc": "2026-10-04T23:24:36.919741+00:00",
+          "monotonic_seconds": 36752.570029732,
+          "phase": "feature_stage",
+          "host_ram_total_mib": 3380.734375,
+          "host_ram_used_mib": 2696.3984375,
+          "host_swap_used_mib": 3472.99609375,
+          "host_cpu_busy_percent": null
+        },
+        "ram_definition": "MemTotal minus MemAvailable; differs from top used-memory accounting",
+        "cpu_definition": "aggregate across all virtual CPUs, 0-100%; idle and iowait excluded",
+        "limitation": "sampled maxima for this subset and phase, not true instantaneous or full-dataset peaks",
+        "monitor_error": null
+      }
+    ],
+    "scope": "distance, duration and speed columns materialized from cached joined input; includes scheduling, conversion and cache population; excludes joins and export; not pure function-body CPU time",
+    "repetitions": "one warmup and three timed trials in one application; not independent full-pipeline replications",
+    "cached_joined_rows": 197338,
+    "execution_sink": "Spark persist(MEMORY_AND_DISK) and count; sum consumes cached speed after timing"
+  }
+}

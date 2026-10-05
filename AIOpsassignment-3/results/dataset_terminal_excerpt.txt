@@ -1,0 +1,121 @@
+
+
+(spark-ray-a3) sidhartha@ubuntu-m1:~/AIOpsassignment-3$ find data/raw/yellow -type f -name "*.parquet" | wc -l
+35
+(spark-ray-a3) sidhartha@ubuntu-m1:~/AIOpsassignment-3$ du -sh data/raw/yellow
+2.0G	data/raw/yellow
+(spark-ray-a3) sidhartha@ubuntu-m1:~/AIOpsassignment-3$ ls -lh data/raw/yellow
+total 2.0G
+-rw-rw-r-- 1 sidhartha sidhartha 46M May  1  2023 yellow_tripdata_2023-02.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 54M May 19  2023 yellow_tripdata_2023-03.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 52M Jun 23  2023 yellow_tripdata_2023-04.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 56M Jul 26  2023 yellow_tripdata_2023-05.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 53M Aug 22  2023 yellow_tripdata_2023-06.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 47M Sep 22  2023 yellow_tripdata_2023-07.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 46M Nov  2  2023 yellow_tripdata_2023-08.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 46M Nov 17  2023 yellow_tripdata_2023-09.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 57M Dec 18  2023 yellow_tripdata_2023-10.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 54M Jan 18  2024 yellow_tripdata_2023-11.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 55M Feb 22  2024 yellow_tripdata_2023-12.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 48M Mar 21  2024 yellow_tripdata_2024-01.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 49M Apr 19  2024 yellow_tripdata_2024-02.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 58M May 23  2024 yellow_tripdata_2024-03.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 57M Jun 21  2024 yellow_tripdata_2024-04.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 60M Jul 19  2024 yellow_tripdata_2024-05.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 58M Aug 20  2024 yellow_tripdata_2024-06.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 50M Sep 18  2024 yellow_tripdata_2024-07.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 49M Oct 24  2024 yellow_tripdata_2024-08.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 59M Nov 21  2024 yellow_tripdata_2024-09.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 62M Dec 19  2024 yellow_tripdata_2024-10.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 58M Jan 18  2025 yellow_tripdata_2024-11.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 59M Feb 22  2025 yellow_tripdata_2024-12.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 57M Apr 23  2025 yellow_tripdata_2025-01.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 58M Apr 23  2025 yellow_tripdata_2025-02.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 67M May 21  2025 yellow_tripdata_2025-03.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 65M Jun 25  2025 yellow_tripdata_2025-04.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 75M Jun 25  2025 yellow_tripdata_2025-05.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 71M Jul 25  2025 yellow_tripdata_2025-06.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 64M Aug 21  2025 yellow_tripdata_2025-07.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 60M Sep 24  2025 yellow_tripdata_2025-08.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 70M Oct 23  2025 yellow_tripdata_2025-09.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 72M Nov 25  2025 yellow_tripdata_2025-10.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 68M Dec 19  2025 yellow_tripdata_2025-11.parquet
+-rw-rw-r-- 1 sidhartha sidhartha 71M Mar 25  2026 yellow_tripdata_2025-12.parquet
+(spark-ray-a3) sidhartha@ubuntu-m1:~/AIOpsassignment-3$ python - <<'PY'
+import glob
+import os
+import pyarrow.parquet as pq
+
+files = sorted(glob.glob("data/raw/yellow/*.parquet"))
+
+print("Number of files:", len(files))
+print()
+
+total_rows = 0
+total_size = 0
+
+for f in files:
+    try:
+        pf = pq.ParquetFile(f)
+        rows = pf.metadata.num_rows
+        size = os.path.getsize(f)
+
+        total_rows += rows
+        total_size += size
+
+        print(
+            f"{os.path.basename(f):40} "
+            f"{rows:>12,} rows   "
+            f"{size / 1024**2:>7.1f} MB"
+        )
+    except Exception as e:
+        print("ERROR:", f, e)
+
+print()
+print("Total files:", len(files))
+print(f"Total rows : {total_rows:,}")
+print(f"Total size : {total_size / 1024**3:.2f} GiB")
+PY
+Number of files: 35
+
+yellow_tripdata_2023-02.parquet             2,913,955 rows      45.5 MB
+yellow_tripdata_2023-03.parquet             3,403,766 rows      53.5 MB
+yellow_tripdata_2023-04.parquet             3,288,250 rows      51.7 MB
+yellow_tripdata_2023-05.parquet             3,513,649 rows      55.9 MB
+yellow_tripdata_2023-06.parquet             3,307,234 rows      52.5 MB
+yellow_tripdata_2023-07.parquet             2,907,108 rows      46.1 MB
+yellow_tripdata_2023-08.parquet             2,824,209 rows      45.9 MB
+yellow_tripdata_2023-09.parquet             2,846,722 rows      45.7 MB
+yellow_tripdata_2023-10.parquet             3,522,285 rows      56.3 MB
+yellow_tripdata_2023-11.parquet             3,339,715 rows      53.5 MB
+yellow_tripdata_2023-12.parquet             3,376,567 rows      54.2 MB
+yellow_tripdata_2024-01.parquet             2,964,624 rows      47.6 MB
+yellow_tripdata_2024-02.parquet             3,007,526 rows      48.0 MB
+yellow_tripdata_2024-03.parquet             3,582,628 rows      57.3 MB
+yellow_tripdata_2024-04.parquet             3,514,289 rows      56.4 MB
+yellow_tripdata_2024-05.parquet             3,723,833 rows      59.7 MB
+yellow_tripdata_2024-06.parquet             3,539,193 rows      57.1 MB
+yellow_tripdata_2024-07.parquet             3,076,903 rows      49.9 MB
+yellow_tripdata_2024-08.parquet             2,979,183 rows      48.7 MB
+yellow_tripdata_2024-09.parquet             3,633,030 rows      58.3 MB
+yellow_tripdata_2024-10.parquet             3,833,771 rows      61.4 MB
+yellow_tripdata_2024-11.parquet             3,646,369 rows      57.8 MB
+yellow_tripdata_2024-12.parquet             3,668,371 rows      58.7 MB
+yellow_tripdata_2025-01.parquet             3,475,226 rows      56.4 MB
+yellow_tripdata_2025-02.parquet             3,577,543 rows      57.5 MB
+yellow_tripdata_2025-03.parquet             4,145,257 rows      66.7 MB
+yellow_tripdata_2025-04.parquet             3,970,553 rows      64.2 MB
+yellow_tripdata_2025-05.parquet             4,591,845 rows      74.2 MB
+yellow_tripdata_2025-06.parquet             4,322,960 rows      70.1 MB
+yellow_tripdata_2025-07.parquet             3,898,963 rows      63.8 MB
+yellow_tripdata_2025-08.parquet             3,574,091 rows      59.4 MB
+yellow_tripdata_2025-09.parquet             4,251,015 rows      69.1 MB
+yellow_tripdata_2025-10.parquet             4,428,699 rows      71.8 MB
+yellow_tripdata_2025-11.parquet             4,181,444 rows      67.8 MB
+yellow_tripdata_2025-12.parquet             4,305,006 rows      70.3 MB
+
+Total files: 35
+Total rows : 125,135,782
+Total size : 1.97 GiB
+(spark-ray-a3) sidhartha@ubuntu-m1:~/AIOpsassignment-3$ 
+

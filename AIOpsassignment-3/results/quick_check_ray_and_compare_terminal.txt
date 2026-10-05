@@ -1,0 +1,133 @@
+(spark-ray-a3) sidhartha@ubuntu-m1:~/AIOpsassignment-3$ python quick_check.py ray
+2026-10-05 04:57:27,718	INFO worker.py:1836 -- Connecting to existing Ray cluster at address: 192.168.64.2:44313...
+2026-10-05 04:57:27,812	INFO worker.py:2024 -- Connected to Ray cluster. View the dashboard at http://192.168.64.2:8265 
+2026-10-05 04:57:28,523	INFO streaming_executor.py:214 -- Starting execution of Dataset dataset_034aKiOsoz2PU1nTxYFv8Y_0. Full logs are in /home/sidhartha/raytmp/session/session_2026-10-05_04-56-59_040252_122263/logs/ray-data
+2026-10-05 04:57:28,523	INFO streaming_executor.py:215 -- Execution plan of Dataset dataset_034aKiOsoz2PU1nTxYFv8Y_0: InputDataBuffer[Input] -> TaskPoolMapOperator[ListFiles] -> TaskPoolMapOperator[ReadFilesParquetV2->MapBatches(remove_required_nulls)->MapBatches(remove_duplicates)->MapBatches(filter_invalid_trips)->MapBatches(add_timestamp_features)->MapBatches(join_location_lookup)->MapBatches(add_average_speed)->Project] -> TaskPoolMapOperator[Write]
+2026-10-05 04:57:28,530	INFO __init__.py:56 -- Progress will be logged because stdout is a non-interactive terminal.
+2026-10-05 04:57:28,530	WARNING utils.py:33 -- Truncating long operator name to 100 characters. To disable this behavior, set `ray.data.DataContext.get_current().DEFAULT_ENABLE_PROGRESS_BAR_NAME_TRUNCATION = False`.
+2026-10-05 04:57:29,416	INFO logging_progress.py:174 -- ======= Running Dataset: dataset_034aKiOsoz2PU1nTxYFv8Y_0 =======
+2026-10-05 04:57:29,417	INFO logging_progress.py:225 -- Total Progress: 0/?
+2026-10-05 04:57:29,417	INFO logging_progress.py:227 -- Active & requested resources: 0/0 CPU, 0.0B/0.0B object store
+2026-10-05 04:57:29,417	INFO logging_progress.py:181 -- 
+2026-10-05 04:57:29,417	INFO logging_progress.py:231 -- ListFiles: 0/1
+2026-10-05 04:57:29,417	INFO logging_progress.py:233 --   Tasks: 1; Actors: 0; Queued blocks: 0 (0.0B); Resources: 1.0 CPU, 0.0B object store
+2026-10-05 04:57:29,418	INFO logging_progress.py:231 -- ReadFilesParquetV2->MapBatches(remove_required_nulls)->MapBatches(remove_duplicates)->...->Project: 0/1
+2026-10-05 04:57:29,418	INFO logging_progress.py:233 --   Tasks: 0 [backpressured:tasks(ResourceBudget)]; Actors: 0; Queued blocks: 0 (0.0B); Resources: 0.0 CPU, 0.0B object store
+2026-10-05 04:57:29,418	INFO logging_progress.py:231 -- Write: 0/1
+2026-10-05 04:57:29,418	INFO logging_progress.py:233 --   Tasks: 0 [backpressured:tasks(ResourceBudget)]; Actors: 0; Queued blocks: 0 (0.0B); Resources: 0.0 CPU, 0.0B object store
+2026-10-05 04:57:29,418	INFO logging_progress.py:192 -- =================================================================
+/home/sidhartha/miniconda/envs/spark-ray-a3/lib/python3.11/site-packages/ray/data/_internal/execution/operators/task_pool_map_operator.py:273: UserWarning: The maximum number of concurrent tasks for 'Write' is set to 2, but the operator only received 1 input(s). This means that the operator can launch at most 1 task(s), which is less than the concurrency limit. You might be able to increase the number of concurrent tasks by configuring `override_num_blocks` earlier in the pipeline.
+  warnings.warn(
+2026-10-05 04:57:38,020	INFO streaming_executor.py:365 -- ✔️  Dataset dataset_034aKiOsoz2PU1nTxYFv8Y_0 execution finished in 9.50 seconds
+2026-10-05 04:57:38,223	INFO dataset.py:6680 -- Data sink Parquet finished. 197338 rows and 44.0MiB data written.
+2026-10-05 04:57:38,268	INFO streaming_executor.py:214 -- Starting execution of Dataset dataset_034aKiePrRpldxolS9gLxT_0. Full logs are in /home/sidhartha/raytmp/session/session_2026-10-05_04-56-59_040252_122263/logs/ray-data
+2026-10-05 04:57:38,268	INFO streaming_executor.py:215 -- Execution plan of Dataset dataset_034aKiePrRpldxolS9gLxT_0: InputDataBuffer[Input] -> TaskPoolMapOperator[ListFiles] -> TaskPoolMapOperator[ReadFilesParquetV2->MapBatches(remove_required_nulls)->MapBatches(remove_duplicates)->MapBatches(filter_invalid_trips)->MapBatches(add_timestamp_features)->MapBatches(join_location_lookup)]
+2026-10-05 04:57:38,375	INFO logging_progress.py:174 -- ======= Running Dataset: dataset_034aKiePrRpldxolS9gLxT_0 =======
+2026-10-05 04:57:38,375	INFO logging_progress.py:225 -- Total Progress: 0/?
+2026-10-05 04:57:38,375	INFO logging_progress.py:227 -- Active & requested resources: 0/0 CPU, 0.0B/0.0B object store
+2026-10-05 04:57:38,375	INFO logging_progress.py:181 -- 
+2026-10-05 04:57:38,375	INFO logging_progress.py:231 -- ListFiles: 0/1
+2026-10-05 04:57:38,375	INFO logging_progress.py:233 --   Tasks: 1; Actors: 0; Queued blocks: 0 (0.0B); Resources: 1.0 CPU, 0.0B object store
+2026-10-05 04:57:38,375	INFO logging_progress.py:231 -- ReadFilesParquetV2->MapBatches(remove_required_nulls)->...->MapBatches(join_location_lookup): 0/1
+2026-10-05 04:57:38,375	INFO logging_progress.py:233 --   Tasks: 0 [backpressured:tasks(ResourceBudget)]; Actors: 0; Queued blocks: 0 (0.0B); Resources: 0.0 CPU, 0.0B object store
+2026-10-05 04:57:38,375	INFO logging_progress.py:192 -- =================================================================
+2026-10-05 04:57:40,214	INFO streaming_executor.py:365 -- ✔️  Dataset dataset_034aKiePrRpldxolS9gLxT_0 execution finished in 1.95 seconds
+2026-10-05 04:57:40,348	INFO streaming_executor.py:214 -- Starting execution of Dataset dataset_034aKihgyiYG2On356Qu1p_0. Full logs are in /home/sidhartha/raytmp/session/session_2026-10-05_04-56-59_040252_122263/logs/ray-data
+2026-10-05 04:57:40,349	INFO streaming_executor.py:215 -- Execution plan of Dataset dataset_034aKihgyiYG2On356Qu1p_0: InputDataBuffer[Input] -> TaskPoolMapOperator[MapBatches(add_average_speed)->Project]
+2026-10-05 04:57:40,591	INFO logging_progress.py:174 -- ======= Running Dataset: dataset_034aKihgyiYG2On356Qu1p_0 =======
+2026-10-05 04:57:40,593	INFO logging_progress.py:225 -- Total Progress: 0/?
+2026-10-05 04:57:40,593	INFO logging_progress.py:227 -- Active & requested resources: 0/0 CPU, 0.0B/0.0B object store
+2026-10-05 04:57:40,593	INFO logging_progress.py:181 -- 
+2026-10-05 04:57:40,593	INFO logging_progress.py:231 -- MapBatches(add_average_speed)->Project: 0/1
+2026-10-05 04:57:40,593	INFO logging_progress.py:233 --   Tasks: 1 [backpressured:tasks(ResourceBudget)]; Actors: 0; Queued blocks: 0 (0.0B); Resources: 1.0 CPU, 0.0B object store
+2026-10-05 04:57:40,593	INFO logging_progress.py:192 -- =================================================================
+2026-10-05 04:57:43,580	INFO streaming_executor.py:365 -- ✔️  Dataset dataset_034aKihgyiYG2On356Qu1p_0 execution finished in 3.23 seconds
+2026-10-05 04:57:45,136	INFO streaming_executor.py:214 -- Starting execution of Dataset dataset_034aKipCz94VqMqCWyPU3w_0. Full logs are in /home/sidhartha/raytmp/session/session_2026-10-05_04-56-59_040252_122263/logs/ray-data
+2026-10-05 04:57:45,136	INFO streaming_executor.py:215 -- Execution plan of Dataset dataset_034aKipCz94VqMqCWyPU3w_0: InputDataBuffer[Input] -> TaskPoolMapOperator[MapBatches(add_average_speed)->Project]
+2026-10-05 04:57:45,222	INFO logging_progress.py:174 -- ======= Running Dataset: dataset_034aKipCz94VqMqCWyPU3w_0 =======
+2026-10-05 04:57:45,222	INFO logging_progress.py:225 -- Total Progress: 0/?
+2026-10-05 04:57:45,223	INFO logging_progress.py:227 -- Active & requested resources: 0/0 CPU, 0.0B/0.0B object store
+2026-10-05 04:57:45,223	INFO logging_progress.py:181 -- 
+2026-10-05 04:57:45,223	INFO logging_progress.py:231 -- MapBatches(add_average_speed)->Project: 0/1
+2026-10-05 04:57:45,223	INFO logging_progress.py:233 --   Tasks: 1 [backpressured:tasks(ResourceBudget)]; Actors: 0; Queued blocks: 0 (0.0B); Resources: 1.0 CPU, 0.0B object store
+2026-10-05 04:57:45,223	INFO logging_progress.py:192 -- =================================================================
+2026-10-05 04:57:45,731	INFO streaming_executor.py:365 -- ✔️  Dataset dataset_034aKipCz94VqMqCWyPU3w_0 execution finished in 0.59 seconds
+2026-10-05 04:57:47,306	INFO streaming_executor.py:214 -- Starting execution of Dataset dataset_034aKisf3tAnhEpNfqfEc9_0. Full logs are in /home/sidhartha/raytmp/session/session_2026-10-05_04-56-59_040252_122263/logs/ray-data
+2026-10-05 04:57:47,307	INFO streaming_executor.py:215 -- Execution plan of Dataset dataset_034aKisf3tAnhEpNfqfEc9_0: InputDataBuffer[Input] -> TaskPoolMapOperator[MapBatches(add_average_speed)->Project]
+2026-10-05 04:57:47,333	INFO logging_progress.py:174 -- ======= Running Dataset: dataset_034aKisf3tAnhEpNfqfEc9_0 =======
+2026-10-05 04:57:47,334	INFO logging_progress.py:225 -- Total Progress: 0/?
+2026-10-05 04:57:47,334	INFO logging_progress.py:227 -- Active & requested resources: 0/0 CPU, 0.0B/0.0B object store
+2026-10-05 04:57:47,334	INFO logging_progress.py:181 -- 
+2026-10-05 04:57:47,334	INFO logging_progress.py:231 -- MapBatches(add_average_speed)->Project: 0/1
+2026-10-05 04:57:47,334	INFO logging_progress.py:233 --   Tasks: 1 [backpressured:tasks(ResourceBudget)]; Actors: 0; Queued blocks: 0 (0.0B); Resources: 1.0 CPU, 0.0B object store
+2026-10-05 04:57:47,334	INFO logging_progress.py:192 -- =================================================================
+2026-10-05 04:57:47,573	INFO streaming_executor.py:365 -- ✔️  Dataset dataset_034aKisf3tAnhEpNfqfEc9_0 execution finished in 0.26 seconds
+2026-10-05 04:57:48,988	INFO streaming_executor.py:214 -- Starting execution of Dataset dataset_034aKivHu5kNayZ91u2bnL_0. Full logs are in /home/sidhartha/raytmp/session/session_2026-10-05_04-56-59_040252_122263/logs/ray-data
+2026-10-05 04:57:48,988	INFO streaming_executor.py:215 -- Execution plan of Dataset dataset_034aKivHu5kNayZ91u2bnL_0: InputDataBuffer[Input] -> TaskPoolMapOperator[MapBatches(add_average_speed)->Project]
+2026-10-05 04:57:49,044	INFO logging_progress.py:174 -- ======= Running Dataset: dataset_034aKivHu5kNayZ91u2bnL_0 =======
+2026-10-05 04:57:49,045	INFO logging_progress.py:225 -- Total Progress: 0/?
+2026-10-05 04:57:49,045	INFO logging_progress.py:227 -- Active & requested resources: 0/0 CPU, 0.0B/0.0B object store
+2026-10-05 04:57:49,045	INFO logging_progress.py:181 -- 
+2026-10-05 04:57:49,045	INFO logging_progress.py:231 -- MapBatches(add_average_speed)->Project: 0/1
+2026-10-05 04:57:49,045	INFO logging_progress.py:233 --   Tasks: 1 [backpressured:tasks(ResourceBudget)]; Actors: 0; Queued blocks: 0 (0.0B); Resources: 1.0 CPU, 0.0B object store
+2026-10-05 04:57:49,045	INFO logging_progress.py:192 -- =================================================================
+2026-10-05 04:57:49,116	INFO streaming_executor.py:365 -- ✔️  Dataset dataset_034aKivHu5kNayZ91u2bnL_0 execution finished in 0.13 seconds
+Ray version: 2.59.0
+Alive nodes: 3
+Cluster resources: {'memory': 1900019712.0, 'object_store_memory': 335544320.0, 'node:__internal_head__': 1.0, 'node:192.168.64.2': 3.0, 'CPU': 2.0}
+Total monthly files: 1
+
+============================================================
+[1/1] Processing quick
+Input: /home/sidhartha/AIOpsassignment-3/quick_checks/20261004T232008998532Z/input/yellow_tripdata_quick.parquet
+============================================================
+Completed quick: 197,338 rows, 10.23 seconds
+
+============================================================
+RAY PIPELINE COMPLETE
+============================================================
+Months processed: 1
+Total rows: 197,338
+Total runtime: 10.25 seconds
+Total output: 0.01 GiB
+Output: /home/sidhartha/AIOpsassignment-3/quick_checks/20261004T232008998532Z/output/ray
+Monthly metrics: /home/sidhartha/AIOpsassignment-3/results/supplementary/20261004T232008998532Z/ray_monthly_results.csv
+
+QUICK CHECK COMPLETE: ray
+Subset pipeline seconds: 10.245127130001492
+Feature-stage median seconds: 0.3850887840017094
+Metrics: /home/sidhartha/AIOpsassignment-3/results/supplementary/20261004T232008998532Z/ray_metrics.json
+(spark-ray-a3) sidhartha@ubuntu-m1:~/AIOpsassignment-3$ python quick_check.py compare
+SUPPLEMENTARY FIXED-SUBSET CHECK
+Input rows: 200,000
+Not a rerun or validation of the full 35-month dataset.
+
+spark_udf: output rows=197,338
+  ingestion-to-export seconds=21.892369
+  materialized feature-stage median seconds=3.045933
+  host CPU max observed percent=99.5049504950495
+  host RAM max observed MiB=2917.41796875
+  Resource scope: whole VM, 0.5-second nominal sampling; subset pipeline only.
+
+spark_native: output rows=197,338
+  ingestion-to-export seconds=15.953042
+  materialized feature-stage median seconds=0.780352
+  host CPU max observed percent=99.0
+  host RAM max observed MiB=2791.5703125
+  Resource scope: whole VM, 0.5-second nominal sampling; subset pipeline only.
+
+ray: output rows=197,338
+  ingestion-to-export seconds=10.245127
+  materialized feature-stage median seconds=0.385089
+  host CPU max observed percent=98.51485148514851
+  host RAM max observed MiB=2664.78515625
+  Resource scope: whole VM, 0.5-second nominal sampling; subset pipeline only.
+
+spark_udf vs spark_native: exact subset value/multiplicity match=True
+  unmatched row instances: left=0, right=0
+spark_udf vs ray: exact subset value/multiplicity match=True
+  unmatched row instances: left=0, right=0
+
+UPLOAD THIS EVIDENCE ARCHIVE: /home/sidhartha/AIOpsassignment-3/quick_check_evidence_20261004T232008998532Z.tar.gz
+Small input and generated Parquet outputs remain in quick_checks/ for your own verification.
+(spark-ray-a3) sidhartha@ubuntu-m1:~/AIOpsassignment-3$ 

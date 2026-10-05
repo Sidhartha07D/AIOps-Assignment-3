@@ -1,0 +1,72 @@
+
+
+(spark-ray-a3) sidhartha@ubuntu-m1:~/AIOpsassignment-3$ SPARK_LOCAL_IP=192.168.64.2 spark-submit \
+  --master spark://192.168.64.2:7077 \
+  --driver-memory 512m \
+  --conf spark.executor.cores=1 \
+  --conf spark.executor.memory=512m \
+  --conf spark.cores.max=2 \
+  --conf spark.sql.shuffle.partitions=32 \
+  --conf spark.local.dir=$HOME/AIOpsassignment-3/spark-local/driver \
+  spark_clean.py 2>&1 | tee results/spark_run.log
+26/10/04 22:43:13 INFO SparkContext: Running Spark version 3.5.7
+26/10/04 22:43:13 INFO SparkContext: OS info Linux, 7.0.0-31-generic, aarch64
+26/10/04 22:43:13 INFO SparkContext: Java version 17.0.20.1
+26/10/04 22:43:13 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/10/04 22:43:13 WARN SparkConf: Note that spark.local.dir will be overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in mesos/standalone/kubernetes and LOCAL_DIRS in YARN).
+26/10/04 22:43:13 INFO ResourceUtils: ==============================================================
+26/10/04 22:43:13 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/10/04 22:43:13 INFO ResourceUtils: ==============================================================
+26/10/04 22:43:13 INFO SparkContext: Submitted application: AIOpsAssignment3-Spark
+26/10/04 22:43:13 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 512, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/10/04 22:43:13 INFO ResourceProfile: Limiting resource is cpus at 1 tasks per executor
+26/10/04 22:43:13 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/10/04 22:43:13 INFO SecurityManager: Changing view acls to: sidhartha
+26/10/04 22:43:13 INFO SecurityManager: Changing modify acls to: sidhartha
+26/10/04 22:43:13 INFO SecurityManager: Changing view acls groups to: 
+26/10/04 22:43:13 INFO SecurityManager: Changing modify acls groups to: 
+26/10/04 22:43:13 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: sidhartha; groups with view permissions: EMPTY; users with modify permissions: sidhartha; groups with modify permissions: EMPTY
+26/10/04 22:43:13 INFO Utils: Successfully started service 'sparkDriver' on port 39425.
+26/10/04 22:43:13 INFO SparkEnv: Registering MapOutputTracker
+26/10/04 22:43:13 INFO SparkEnv: Registering BlockManagerMaster
+26/10/04 22:43:13 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/10/04 22:43:13 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/10/04 22:43:13 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/10/04 22:43:14 INFO DiskBlockManager: Created local directory at /home/sidhartha/AIOpsassignment-3/spark-local/driver/blockmgr-928c38f4-39f5-432c-813a-d828b715a24b
+26/10/04 22:43:14 INFO MemoryStore: MemoryStore started with capacity 127.2 MiB
+26/10/04 22:43:14 INFO SparkEnv: Registering OutputCommitCoordinator
+26/10/04 22:43:14 INFO JettyUtils: Start Jetty 192.168.64.2:4040 for SparkUI
+26/10/04 22:43:14 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/10/04 22:43:14 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://192.168.64.2:7077...
+26/10/04 22:43:14 INFO TransportClientFactory: Successfully created connection to /192.168.64.2:7077 after 31 ms (0 ms spent in bootstraps)
+26/10/04 22:43:14 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20261004224314-0003
+26/10/04 22:43:14 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 36927.
+26/10/04 22:43:14 INFO NettyBlockTransferService: Server created on 192.168.64.2:36927
+26/10/04 22:43:14 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/10/04 22:43:14 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 192.168.64.2, 36927, None)
+26/10/04 22:43:14 INFO BlockManagerMasterEndpoint: Registering block manager 192.168.64.2:36927 with 127.2 MiB RAM, BlockManagerId(driver, 192.168.64.2, 36927, None)
+26/10/04 22:43:14 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 192.168.64.2, 36927, None)
+26/10/04 22:43:14 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 192.168.64.2, 36927, None)
+26/10/04 22:43:14 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20261004224314-0003/0 on worker-20261004223940-192.168.64.2-40831 (192.168.64.2:40831) with 1 core(s)
+26/10/04 22:43:14 INFO StandaloneSchedulerBackend: Granted executor ID app-20261004224314-0003/0 on hostPort 192.168.64.2:40831 with 1 core(s), 512.0 MiB RAM
+26/10/04 22:43:14 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20261004224314-0003/1 on worker-20261004224032-192.168.64.2-34821 (192.168.64.2:34821) with 1 core(s)
+26/10/04 22:43:14 INFO StandaloneSchedulerBackend: Granted executor ID app-20261004224314-0003/1 on hostPort 192.168.64.2:34821 with 1 core(s), 512.0 MiB RAM
+26/10/04 22:43:14 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20261004224314-0003/1 is now RUNNING
+26/10/04 22:43:14 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20261004224314-0003/0 is now RUNNING
+26/10/04 22:43:14 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+Spark master: spark://192.168.64.2:7077
+Spark application ID: app-20261004224314-0003
+Spark default parallelism: 2
+Trip columns: ['VendorID', 'tpep_pickup_datetime', 'tpep_dropoff_datetime', 'passenger_count', 'trip_distance', 'PULocationID', 'DOLocationID', 'fare_amount', 'total_amount']
+Lookup columns: ['LocationID', 'Borough', 'Zone', 'service_zone']
+Trip partitions: 22
+Cleansing stage created successfully
+Cleaned columns: ['VendorID', 'tpep_pickup_datetime', 'tpep_dropoff_datetime', 'passenger_count', 'trip_distance', 'PULocationID', 'DOLocationID', 'fare_amount', 'total_amount']
+Timestamp normalization stage created successfully
+Pickup/dropoff lookup tables prepared
+Heavy join stage created successfully
+Joined columns: ['DOLocationID', 'PULocationID', 'VendorID', 'tpep_pickup_datetime', 'tpep_dropoff_datetime', 'passenger_count', 'trip_distance', 'fare_amount', 'total_amount', 'pickup_timestamp', 'dropoff_timestamp', 'trip_duration_hours', 'pickup_borough', 'pickup_zone', 'pickup_service_zone', 'dropoff_borough', 'dropoff_zone', 'dropoff_service_zone']
+Python UDF stage created successfully
+Spark pipeline completed in 612.13 seconds
+Output: output/spark/cleaned_taxi
+(spark-ray-a3) sidhartha@ubuntu-m1:~/AIOpsassignment-3$

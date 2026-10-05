@@ -1,0 +1,6 @@
+spark_version=3.5.7
+runtime_seconds=612.133718
+parquet_files=32
+row_count=121692576
+output_size=3.8G
+columns=17

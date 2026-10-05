@@ -1,0 +1,88 @@
+
+
+(spark-ray-a3) sidhartha@ubuntu-m1:~/AIOpsassignment-3$ grep -E '^Completed [0-9]{4}-[0-9]{2}:' results/ray_run.log
+Completed 2023-12: 3,303,105 rows, 96.79 seconds
+Completed 2024-01: 2,904,141 rows, 111.63 seconds
+Completed 2024-02: 2,939,257 rows, 40.81 seconds
+Completed 2024-03: 3,495,270 rows, 49.06 seconds
+Completed 2024-04: 3,468,346 rows, 46.73 seconds
+Completed 2024-05: 3,673,950 rows, 56.32 seconds
+Completed 2024-06: 3,486,179 rows, 46.41 seconds
+Completed 2024-07: 3,028,800 rows, 46.07 seconds
+Completed 2024-08: 2,921,720 rows, 37.39 seconds
+Completed 2024-09: 3,551,821 rows, 49.49 seconds
+Completed 2024-10: 3,752,055 rows, 50.85 seconds
+Completed 2024-11: 3,576,933 rows, 48.36 seconds
+Completed 2024-12: 3,592,555 rows, 51.45 seconds
+Completed 2025-01: 3,382,974 rows, 50.18 seconds
+Completed 2025-02: 3,473,274 rows, 52.66 seconds
+Completed 2025-03: 4,020,017 rows, 66.63 seconds
+Completed 2025-04: 3,845,182 rows, 69.69 seconds
+Completed 2025-05: 4,387,975 rows, 75.37 seconds
+Completed 2025-06: 4,121,495 rows, 69.18 seconds
+Completed 2025-07: 3,720,634 rows, 62.19 seconds
+Completed 2025-08: 3,422,739 rows, 69.28 seconds
+Completed 2025-09: 4,070,556 rows, 79.29 seconds
+Completed 2025-10: 4,236,467 rows, 76.10 seconds
+Completed 2025-11: 4,011,193 rows, 74.08 seconds
+Completed 2025-12: 4,096,385 rows, 77.08 seconds
+(spark-ray-a3) sidhartha@ubuntu-m1:~/AIOpsassignment-3$ python - <<'PY'
+import re
+
+times = {}
+
+with open("results/ray_run.log") as f:
+    for line in f:
+        m = re.search(
+            r"Completed (\d{4}-\d{2}): .*? ([0-9.]+) seconds",
+            line
+        )
+        if m:
+            month, seconds = m.groups()
+            times[month] = float(seconds)
+
+print("Months found:", len(times))
+
+for month in sorted(times):
+    print(f"{month}: {times[month]:.2f} s")
+
+total = sum(times.values())
+
+print("\nReconstructed full Ray processing time:")
+print(f"{total:.2f} seconds")
+print(f"{total/60:.2f} minutes")
+
+with open("results/ray_reconstructed_time.txt", "w") as f:
+    f.write(f"{total:.6f}\n")
+PY
+Months found: 25
+2023-12: 96.79 s
+2024-01: 111.63 s
+2024-02: 40.81 s
+2024-03: 49.06 s
+2024-04: 46.73 s
+2024-05: 56.32 s
+2024-06: 46.41 s
+2024-07: 46.07 s
+2024-08: 37.39 s
+2024-09: 49.49 s
+2024-10: 50.85 s
+2024-11: 48.36 s
+2024-12: 51.45 s
+2025-01: 50.18 s
+2025-02: 52.66 s
+2025-03: 66.63 s
+2025-04: 69.69 s
+2025-05: 75.37 s
+2025-06: 69.18 s
+2025-07: 62.19 s
+2025-08: 69.28 s
+2025-09: 79.29 s
+2025-10: 76.10 s
+2025-11: 74.08 s
+2025-12: 77.08 s
+
+Reconstructed full Ray processing time:
+1553.09 seconds
+25.88 minutes
+(spark-ray-a3) sidhartha@ubuntu-m1:~/AIOpsassignment-3$

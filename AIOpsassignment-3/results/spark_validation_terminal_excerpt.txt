@@ -1,0 +1,45 @@
+
+
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda2        39G   31G  5.6G  85% /
+(spark-ray-a3) sidhartha@ubuntu-m1:~/AIOpsassignment-3$ du -sh spark-local/* 2>/dev/null
+4.0K	spark-local/driver
+8.0K	spark-local/worker1
+8.0K	spark-local/worker2
+(spark-ray-a3) sidhartha@ubuntu-m1:~/AIOpsassignment-3$ python - <<'PY'
+import glob
+import pyarrow.parquet as pq
+
+files = glob.glob("output/spark/cleaned_taxi/*.parquet")
+total_rows = sum(pq.ParquetFile(f).metadata.num_rows for f in files)
+
+print("Parquet files:", len(files))
+print("Total rows:", total_rows)
+print("\nSchema:")
+print(pq.read_schema(files[0]))
+PY
+Parquet files: 32
+Total rows: 121692576
+
+Schema:
+VendorID: int32
+passenger_count: int64
+trip_distance: double
+fare_amount: double
+total_amount: double
+PULocationID: int32
+DOLocationID: int32
+pickup_timestamp: string
+dropoff_timestamp: string
+trip_duration_hours: double
+average_speed_mph: double
+pickup_borough: string
+pickup_zone: string
+pickup_service_zone: string
+dropoff_borough: string
+dropoff_zone: string
+dropoff_service_zone: string
+-- schema metadata --
+org.apache.spark.version: '3.5.7'
+org.apache.spark.sql.parquet.row.metadata: '{"type":"struct","fields":[{"' + 1229
+(spark-ray-a3) sidhartha@ubuntu-m1:~/AIOpsassignment-3$

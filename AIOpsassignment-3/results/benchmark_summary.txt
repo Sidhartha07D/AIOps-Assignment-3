@@ -1,0 +1,26 @@
+Evidence-derived summary (not a new benchmark run)
+Spark Python UDF: 612.13 s (saved time: 612.133718 s)
+Spark native expression: 570.36 s (successful terminal output)
+Observed Spark end-to-end delta: 41.77 s; 7.32% of native time; 1.073x ratio
+Ray earlier 10 months: 709.74 s, recovered dataset execution times
+Ray later 25 months: 1553.09 s, Completed per-month wall-clock lines
+Ray reconstructed successful processing: 2262.83 s
+Ray last resumed session only: 1554.136178 s, not a full-dataset runtime
+Reconstructed Ray / Spark UDF ratio: 3.697x (about 3.70x)
+Spark UDF rows: 121692576; Ray rows: 121692576
+Spark files: 32; Ray files: 35; 17 output columns
+Spark disk allocation: 3.8G from du; Ray file bytes: 3.516 GiB
+Original full-data runs: true peak CPU/RAM and standalone transformation times not established
+Original full-data runs: exact output equality and native-output parity not established
+Resource screenshot: 51.4% user + 9.0% system CPU; 2641.8/3380.7 MiB RAM used; 2273.6/3892.0 MiB swap used
+Resource screenshot belongs to failed native attempt preceding successful rerun.
+Ray cluster screenshot predates final reduced object stores (shows 150 MB per node).
+
+SUPPLEMENTARY FIXED-SUBSET CHECK (200000 input rows; 197338 output rows each)
+Source: supplied VM terminal summaries; original supplementary metrics/trace archive not yet received locally.
+spark_udf: pipeline=21.892369 s; materialized feature median=3.045933 s; host CPU sampled max=99.504950%; RAM sampled max=2917.417969 MiB
+spark_native: pipeline=15.953042 s; materialized feature median=0.780352 s; host CPU sampled max=99.000000%; RAM sampled max=2791.570312 MiB
+ray: pipeline=10.245127 s; materialized feature median=0.385089 s; host CPU sampled max=98.514851%; RAM sampled max=2664.785156 MiB
+Spark UDF/native and Spark UDF/Ray subset exact-value/multiplicity matches passed; 0 unmatched row instances both ways.
+Feature: cached joined input, 1 warmup + 3 timed materializations; includes framework overhead, not pure Python-body time.
+Resources: whole VM, nominal 0.5 s sampling, MemTotal-MemAvailable RAM; not original full-run peaks.

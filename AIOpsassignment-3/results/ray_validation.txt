@@ -1,0 +1,26 @@
+parquet_files=35
+row_count=121692576
+output_bytes=3775268615
+output_gib=3.516
+reconstructed_runtime_seconds=2262.830000
+
+schema:
+VendorID: int32
+passenger_count: int64
+trip_distance: double
+fare_amount: double
+total_amount: double
+PULocationID: int32
+DOLocationID: int32
+pickup_timestamp: large_string
+dropoff_timestamp: large_string
+trip_duration_hours: double
+average_speed_mph: double
+pickup_borough: large_string
+pickup_zone: large_string
+pickup_service_zone: large_string
+dropoff_borough: large_string
+dropoff_zone: large_string
+dropoff_service_zone: large_string
+-- schema metadata --
+pandas: '{"index_columns": [], "column_indexes": [], "columns": [{"name":' + 2768

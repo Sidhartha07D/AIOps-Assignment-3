@@ -1,0 +1,36 @@
+month,runtime_seconds,rows,timing_scope
+2023-02,73.44,2872501,Ray dataset execution (write included); recovered log
+2023-03,79.66,3354789,Ray dataset execution (write included); recovered log
+2023-04,78.03,3247840,Ray dataset execution (write included); recovered log
+2023-05,92.47,3466623,Ray dataset execution (write included); recovered log
+2023-06,122.75,3259503,Ray dataset execution (write included); recovered log
+2023-07,78.98,2857079,Ray dataset execution (write included); recovered log
+2023-08,44.35,2766567,Ray dataset execution (write included); recovered log
+2023-09,39.04,2747974,Ray dataset execution (write included); recovered log
+2023-10,60.39,3400429,Ray dataset execution (write included); recovered log
+2023-11,40.63,3236248,Ray dataset execution (write included); recovered log
+2023-12,96.79,3303105,Per-month wall-clock from Completed line
+2024-01,111.63,2904141,Per-month wall-clock from Completed line
+2024-02,40.81,2939257,Per-month wall-clock from Completed line
+2024-03,49.06,3495270,Per-month wall-clock from Completed line
+2024-04,46.73,3468346,Per-month wall-clock from Completed line
+2024-05,56.32,3673950,Per-month wall-clock from Completed line
+2024-06,46.41,3486179,Per-month wall-clock from Completed line
+2024-07,46.07,3028800,Per-month wall-clock from Completed line
+2024-08,37.39,2921720,Per-month wall-clock from Completed line
+2024-09,49.49,3551821,Per-month wall-clock from Completed line
+2024-10,50.85,3752055,Per-month wall-clock from Completed line
+2024-11,48.36,3576933,Per-month wall-clock from Completed line
+2024-12,51.45,3592555,Per-month wall-clock from Completed line
+2025-01,50.18,3382974,Per-month wall-clock from Completed line
+2025-02,52.66,3473274,Per-month wall-clock from Completed line
+2025-03,66.63,4020017,Per-month wall-clock from Completed line
+2025-04,69.69,3845182,Per-month wall-clock from Completed line
+2025-05,75.37,4387975,Per-month wall-clock from Completed line
+2025-06,69.18,4121495,Per-month wall-clock from Completed line
+2025-07,62.19,3720634,Per-month wall-clock from Completed line
+2025-08,69.28,3422739,Per-month wall-clock from Completed line
+2025-09,79.29,4070556,Per-month wall-clock from Completed line
+2025-10,76.10,4236467,Per-month wall-clock from Completed line
+2025-11,74.08,4011193,Per-month wall-clock from Completed line
+2025-12,77.08,4096385,Per-month wall-clock from Completed line

@@ -1,0 +1,93 @@
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/10/04 22:00:22 INFO Master: Started daemon with process name: 40190@ubuntu-m1
+26/10/04 22:00:22 INFO SignalUtils: Registering signal handler for TERM
+26/10/04 22:00:22 INFO SignalUtils: Registering signal handler for HUP
+26/10/04 22:00:22 INFO SignalUtils: Registering signal handler for INT
+26/10/04 22:00:22 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/10/04 22:00:22 INFO SecurityManager: Changing view acls to: sidhartha
+26/10/04 22:00:22 INFO SecurityManager: Changing modify acls to: sidhartha
+26/10/04 22:00:22 INFO SecurityManager: Changing view acls groups to: 
+26/10/04 22:00:22 INFO SecurityManager: Changing modify acls groups to: 
+26/10/04 22:00:22 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: sidhartha; groups with view permissions: EMPTY; users with modify permissions: sidhartha; groups with modify permissions: EMPTY
+26/10/04 22:00:22 INFO Utils: Successfully started service 'sparkMaster' on port 7077.
+26/10/04 22:00:22 INFO Master: Starting Spark master at spark://192.168.64.2:7077
+26/10/04 22:00:22 INFO Master: Running Spark version 3.5.7
+26/10/04 22:00:22 INFO JettyUtils: Start Jetty 192.168.64.2:8080 for MasterUI
+26/10/04 22:00:22 INFO Utils: Successfully started service 'MasterUI' on port 8080.
+26/10/04 22:00:22 INFO MasterWebUI: Bound MasterWebUI to 192.168.64.2, and started at http://192.168.64.2:8080
+26/10/04 22:00:22 INFO Master: I have been elected leader! New state: ALIVE
+26/10/04 22:04:27 INFO Master: Registering worker 192.168.64.2:44107 with 1 cores, 768.0 MiB RAM
+26/10/04 22:05:47 INFO Master: Registering worker 192.168.64.2:38827 with 1 cores, 768.0 MiB RAM
+26/10/04 22:12:03 INFO Master: Registering app SparkClusterTest
+26/10/04 22:12:04 INFO Master: Registered app SparkClusterTest with ID app-20261004221203-0000
+26/10/04 22:12:04 INFO Master: Start scheduling for app app-20261004221203-0000 with rpId: 0
+26/10/04 22:12:04 INFO Master: Launching executor app-20261004221203-0000/0 on worker worker-20261004220426-192.168.64.2-44107
+26/10/04 22:12:04 INFO Master: Launching executor app-20261004221203-0000/1 on worker worker-20261004220547-192.168.64.2-38827
+26/10/04 22:12:06 INFO Master: Start scheduling for app app-20261004221203-0000 with rpId: 0
+26/10/04 22:12:06 INFO Master: Start scheduling for app app-20261004221203-0000 with rpId: 0
+26/10/04 22:12:12 INFO Master: Received unregister request from application app-20261004221203-0000
+26/10/04 22:12:12 INFO Master: Removing app app-20261004221203-0000
+26/10/04 22:12:12 INFO Master: 192.168.64.2:60506 got disassociated, removing it.
+26/10/04 22:12:12 INFO Master: 192.168.64.2:40279 got disassociated, removing it.
+26/10/04 22:12:12 WARN Master: Got status update for unknown executor app-20261004221203-0000/1
+26/10/04 22:12:12 WARN Master: Got status update for unknown executor app-20261004221203-0000/0
+26/10/04 22:32:00 INFO Master: Registering app AIOpsAssignment3-Spark
+26/10/04 22:32:00 INFO Master: Registered app AIOpsAssignment3-Spark with ID app-20261004223200-0001
+26/10/04 22:32:00 INFO Master: Start scheduling for app app-20261004223200-0001 with rpId: 0
+26/10/04 22:32:00 INFO Master: Launching executor app-20261004223200-0001/0 on worker worker-20261004220426-192.168.64.2-44107
+26/10/04 22:32:00 INFO Master: Launching executor app-20261004223200-0001/1 on worker worker-20261004220547-192.168.64.2-38827
+26/10/04 22:32:00 INFO Master: Start scheduling for app app-20261004223200-0001 with rpId: 0
+26/10/04 22:32:00 INFO Master: Start scheduling for app app-20261004223200-0001 with rpId: 0
+26/10/04 22:32:14 INFO Master: Received unregister request from application app-20261004223200-0001
+26/10/04 22:32:14 INFO Master: Removing app app-20261004223200-0001
+26/10/04 22:32:14 INFO Master: 192.168.64.2:51004 got disassociated, removing it.
+26/10/04 22:32:14 INFO Master: 192.168.64.2:41821 got disassociated, removing it.
+26/10/04 22:32:14 WARN Master: Got status update for unknown executor app-20261004223200-0001/1
+26/10/04 22:32:15 WARN Master: Got status update for unknown executor app-20261004223200-0001/0
+26/10/04 22:33:54 INFO Master: Registering app AIOpsAssignment3-Spark
+26/10/04 22:33:54 INFO Master: Registered app AIOpsAssignment3-Spark with ID app-20261004223354-0002
+26/10/04 22:33:54 INFO Master: Start scheduling for app app-20261004223354-0002 with rpId: 0
+26/10/04 22:33:54 INFO Master: Launching executor app-20261004223354-0002/0 on worker worker-20261004220426-192.168.64.2-44107
+26/10/04 22:33:54 INFO Master: Launching executor app-20261004223354-0002/1 on worker worker-20261004220547-192.168.64.2-38827
+26/10/04 22:33:55 INFO Master: Start scheduling for app app-20261004223354-0002 with rpId: 0
+26/10/04 22:33:56 INFO Master: Start scheduling for app app-20261004223354-0002 with rpId: 0
+26/10/04 22:35:46 INFO Master: Received unregister request from application app-20261004223354-0002
+26/10/04 22:35:47 INFO Master: Removing app app-20261004223354-0002
+26/10/04 22:35:47 INFO Master: 192.168.64.2:33652 got disassociated, removing it.
+26/10/04 22:35:47 INFO Master: 192.168.64.2:43895 got disassociated, removing it.
+26/10/04 22:35:47 WARN Master: Got status update for unknown executor app-20261004223354-0002/1
+26/10/04 22:35:47 WARN Master: Got status update for unknown executor app-20261004223354-0002/0
+26/10/04 22:39:26 WARN Master: Got status update for unknown executor app-20261004221203-0000/0
+26/10/04 22:39:26 INFO Master: 192.168.64.2:39104 got disassociated, removing it.
+26/10/04 22:39:26 INFO Master: 192.168.64.2:44107 got disassociated, removing it.
+26/10/04 22:39:26 INFO Master: Removing worker worker-20261004220426-192.168.64.2-44107 on 192.168.64.2:44107
+26/10/04 22:39:26 INFO Master: Telling app of lost worker: worker-20261004220426-192.168.64.2-44107
+26/10/04 22:39:41 INFO Master: Registering worker 192.168.64.2:40831 with 1 cores, 768.0 MiB RAM
+26/10/04 22:40:17 WARN Master: Got status update for unknown executor app-20261004221203-0000/1
+26/10/04 22:40:18 INFO Master: 192.168.64.2:58722 got disassociated, removing it.
+26/10/04 22:40:18 INFO Master: 192.168.64.2:38827 got disassociated, removing it.
+26/10/04 22:40:18 INFO Master: Removing worker worker-20261004220547-192.168.64.2-38827 on 192.168.64.2:38827
+26/10/04 22:40:18 INFO Master: Telling app of lost worker: worker-20261004220547-192.168.64.2-38827
+26/10/04 22:40:32 INFO Master: Registering worker 192.168.64.2:34821 with 1 cores, 768.0 MiB RAM
+26/10/04 22:43:14 INFO Master: Registering app AIOpsAssignment3-Spark
+26/10/04 22:43:14 INFO Master: Registered app AIOpsAssignment3-Spark with ID app-20261004224314-0003
+26/10/04 22:43:14 INFO Master: Start scheduling for app app-20261004224314-0003 with rpId: 0
+26/10/04 22:43:14 INFO Master: Launching executor app-20261004224314-0003/0 on worker worker-20261004223940-192.168.64.2-40831
+26/10/04 22:43:14 INFO Master: Launching executor app-20261004224314-0003/1 on worker worker-20261004224032-192.168.64.2-34821
+26/10/04 22:43:14 INFO Master: Start scheduling for app app-20261004224314-0003 with rpId: 0
+26/10/04 22:43:14 INFO Master: Start scheduling for app app-20261004224314-0003 with rpId: 0
+26/10/04 22:53:28 INFO Master: Received unregister request from application app-20261004224314-0003
+26/10/04 22:53:28 INFO Master: Removing app app-20261004224314-0003
+26/10/04 22:53:30 INFO Master: 192.168.64.2:44724 got disassociated, removing it.
+26/10/04 22:53:30 INFO Master: 192.168.64.2:39425 got disassociated, removing it.
+26/10/04 22:53:30 WARN Master: Got status update for unknown executor app-20261004224314-0003/0
+26/10/04 22:53:30 WARN Master: Got status update for unknown executor app-20261004224314-0003/1
+26/10/04 23:05:50 INFO Master: 192.168.64.2:53536 got disassociated, removing it.
+26/10/04 23:05:50 INFO Master: 192.168.64.2:40831 got disassociated, removing it.
+26/10/04 23:05:50 INFO Master: Removing worker worker-20261004223940-192.168.64.2-40831 on 192.168.64.2:40831
+26/10/04 23:05:50 INFO Master: Telling app of lost worker: worker-20261004223940-192.168.64.2-40831
+26/10/04 23:05:53 INFO Master: 192.168.64.2:51330 got disassociated, removing it.
+26/10/04 23:05:53 INFO Master: 192.168.64.2:34821 got disassociated, removing it.
+26/10/04 23:05:53 INFO Master: Removing worker worker-20261004224032-192.168.64.2-34821 on 192.168.64.2:34821
+26/10/04 23:05:53 INFO Master: Telling app of lost worker: worker-20261004224032-192.168.64.2-34821
+26/10/04 23:06:51 ERROR Master: RECEIVED SIGNAL TERM
